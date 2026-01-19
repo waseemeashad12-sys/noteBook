@@ -8,9 +8,9 @@
 
 ## 📸 Screenshots | لقطات الشاشة
 
-| Login Screen | Home Page | Custom Drawer | Add Note (Text & Image) |
-|:---:|:---:|:---:|:---:|
-| <img src="screenshots/1.jpg" width="200"/> | <img src="screenshots/2.jpg" width="200"/> | <img src="screenshots/3.jpg" width="200"/> | <img src="screenshots/4.jpg" width="200"/> |
+|                    Login Screen                     |                      Home Page                      |                    Custom Drawer                    |               Add Note (Text & Image)               |
+|:---------------------------------------------------:|:---------------------------------------------------:|:---------------------------------------------------:|:---------------------------------------------------:|
+| <img src="noteBook/screenshots/1.jpg" width="200"/> | <img src="noteBook/screenshots/2.jpg" width="200"/> | <img src="noteBook/screenshots/3.jpg" width="200"/> | <img src="noteBook/screenshots/4.jpg" width="200"/> |
 
 > *Please ensure images are in `screenshots/` folder named 1.jpg, 2.jpg, etc.*
 
