@@ -1,0 +1,51 @@
+name: notebook
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # --- مكتبات أضيفت حديثاً ---
+  # لإدارة الحالة والترجمة (المتطلب 2 و 4)
+  get: ^4.6.6
+
+  # --- مكتباتك القديمة ---
+  image_picker: ^1.0.7
+  path_provider: ^2.1.2
+
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.20.2
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+  # لتغيير أيقونة التطبيق (المتطلب 3)
+  flutter_launcher_icons: ^0.13.1
+
+# --- إعدادات أيقونة التطبيق ---
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  # ⚠️ ملاحظة هامة: يجب أن تنشئ مجلد assets ثم icon وتضع صورتك باسم app_icon.png
+  image_path: "assets/icon/app_icon.png"
+  min_sdk_android: 21
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - images/
+    # إذا وضعت الأيقونة في مجلد جديد، تأكد أنك لا تحتاج لإضافته هنا،
+    # مكتبة الأيقونات تقرأ المسار من الإعدادات بالأعلى مباشرة.
