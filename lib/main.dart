@@ -1,34 +1,61 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart'; // استدعاء مكتبة GetX
-import 'app_lang.dart';        // استدعاء ملف الترجمة (تأكد أن الملف موجود بنفس الاسم)
-import 'splashScreen.dart';    // استدعاء صفحة البداية
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:notebook/app_lang.dart';
+import 'package:notebook/views/splash_screen.dart';
+import 'package:notebook/controller/theme_controller.dart';
 
-void main() {
-  runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await GetStorage.init();
+  Get.put(ThemeController());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    // نستخدم GetMaterialApp بدلاً من MaterialApp
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
+    final themeController = Get.find<ThemeController>();
 
-      // العنوان لم يعد يحتاج إلى ترجمة يدوية هنا، يمكن وضعه نصاً عادياً أو استخدام مفتاح الترجمة
+    return Obx(() => GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Notes App',
 
-      // --- إعدادات الترجمة ---
-      // هنا نستدعي الكلاس الذي أنشأناه في ملف app_lang.dart
       translations: AppTranslations(),
+      locale: const Locale('ar'),
+      fallbackLocale: const Locale('en'),
 
-      // اللغة الافتراضية عند فتح التطبيق (العربية)
-      locale: Locale('ar'),
 
-      // اللغة البديلة في حال حدوث خطأ
-      fallbackLocale: Locale('en'),
+      theme: ThemeData(
+        brightness: Brightness.light,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.blue,
+          foregroundColor: Colors.white,
+          elevation: 4,
+        ),
+      ),
 
-      // الصفحة الأولى
-      home: Splashscreen(),
-    );
+
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.blue,
+          brightness: Brightness.dark,
+        ),
+        appBarTheme: const AppBarTheme(
+          elevation: 2,
+        ),
+      ),
+
+
+      themeMode: themeController.isDark.value
+          ? ThemeMode.dark
+          : ThemeMode.light,
+
+      home: const Splashscreen(),
+    ));
   }
 }
