@@ -10,15 +10,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-  # --- مكتبات أضيفت حديثاً ---
-  # لإدارة الحالة والترجمة (المتطلب 2 و 4)
   get: ^4.6.6
-
-  # --- مكتباتك القديمة ---
+  sqflite: ^2.3.0
   image_picker: ^1.0.7
   path_provider: ^2.1.2
-
+  get_storage: ^2.1.1
   flutter_localizations:
     sdk: flutter
   intl: ^0.20.2
@@ -28,17 +24,19 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  # --- تنبيه لو في اخطاء بالكود   ---
   flutter_lints: ^6.0.0
 
-  # لتغيير أيقونة التطبيق (المتطلب 3)
+  file_picker: ^8.0.0
+
+
+
   flutter_launcher_icons: ^0.13.1
 
-# --- إعدادات أيقونة التطبيق ---
+
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  # ⚠️ ملاحظة هامة: يجب أن تنشئ مجلد assets ثم icon وتضع صورتك باسم app_icon.png
   image_path: "assets/icon/app_icon.png"
   min_sdk_android: 21
 
@@ -47,5 +45,4 @@ flutter:
 
   assets:
     - images/
-    # إذا وضعت الأيقونة في مجلد جديد، تأكد أنك لا تحتاج لإضافته هنا،
-    # مكتبة الأيقونات تقرأ المسار من الإعدادات بالأعلى مباشرة.
+
